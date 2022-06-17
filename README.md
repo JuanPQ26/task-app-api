@@ -16,7 +16,6 @@ DB_HOST=your database host
 DB_NAME=your database name
 DB_USER=your database user
 DB_PASS=your database pass
-
 API_SECRET=your ultra secret
 ```
 
