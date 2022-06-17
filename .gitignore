@@ -1,0 +1,9 @@
+# environment
+venv/
+.env
+
+# editor
+.idea/
+
+# python cache
+__pycache__/
