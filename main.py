@@ -1,3 +1,5 @@
+import os
+# fastapi
 from fastapi import FastAPI, Depends, Header, status
 # schemas
 from api.schemas.tasks_schemas import TaskCreate, TaskUpdate
@@ -8,6 +10,8 @@ from api.services import auth_services, users_services
 from database import engine, Base, SessionLocal
 # sqlalchemy
 from sqlalchemy.orm import Session
+# uvicorn
+import uvicorn
 
 # create all tables
 Base.metadata.create_all(bind=engine)
@@ -98,3 +102,7 @@ async def delete_user_task(task_id: int, authorization: str = Header(...), db: S
     user_removed = users_services.delete_user_task(db, user_id, task_id)
 
     return {"detail": "task removed", "removed": user_removed}
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=int(os.getenv("PORT", default=8080)), log_level="info")
