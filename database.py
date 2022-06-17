@@ -1,19 +1,15 @@
-import os
 # sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-# dotenv
-import dotenv
-
-# init .env file
-dotenv.load_dotenv()
+# utils
+from api.utils import env
 
 # database credentials
-db_host = os.getenv("DB_HOST")
-db_name = os.getenv("DB_NAME")
-db_user = os.getenv("DB_USER")
-db_pass = os.getenv("DB_PASS")
+db_host = env.getenv("DB_HOST")
+db_name = env.getenv("DB_NAME")
+db_user = env.getenv("DB_USER")
+db_pass = env.getenv("DB_PASS")
 
 # validate database credentials
 if db_host is None:
