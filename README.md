@@ -2,6 +2,7 @@
 API Rest using FastAPI and MySQL
 
 ## Documentation
+https://task-app-api-production.up.railway.app/docs
 
 ## Install Dependencies
 ```shell
